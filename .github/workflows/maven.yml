@@ -1,1 +1,20 @@
+name: java maven
+on: push
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - name: actions
+              uses: actions/checkout@v4
+            - name: setup JDK version
+              uses: actions/setup-java@v4
+              with: 
+                java-version: '11'
+                distribution: 'temurin'
+                architecture: x64
+            - name: build with maven
+              run: mvn clean install
+
+                
 
